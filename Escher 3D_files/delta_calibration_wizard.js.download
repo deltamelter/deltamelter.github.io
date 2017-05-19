@@ -2,7 +2,7 @@
 
 var debug = false;
 
-var initialPoints = 7;
+var initialPoints = 10;
 var initialFactors = 6;
 
 var numEarlierRows = 12;	// must match the HTML
