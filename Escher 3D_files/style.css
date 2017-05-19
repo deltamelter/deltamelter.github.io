@@ -1,0 +1,933 @@
+/* escher3d.com\css\style.css as at 2016-01-13 */
+/* ------------------------------------------- */
+
+/* border:solid 1px #751947;  lightish maroon */
+
+
+/*                                                                       GENERAL */
+
+
+
+.underdevelopment {
+    position: absolute;
+    left:430px;
+    /* top:350px; */
+	top:400px;
+    z-index: 2;
+	background-color: red;
+	color: white;
+	font-size: xx-large;
+	padding:10px 10px 10px 20px;
+}
+
+
+/* hidden links */
+a.noshow:link {
+	text-decoration:none;
+	color:black;
+}
+
+a.noshow:visited {
+	text-decoration:none;
+	color:black;
+}
+
+a.noshow:active {
+	text-decoration:none;
+	color:black;
+}
+
+a.noshow:hover {
+	text-decoration:none;
+	color:black;
+}
+
+/* change height to 120px for a top banner */
+.banner {
+
+	height:0px;
+	border-style:none;
+	border-color:black;
+	border-width:15px 15px 15px 15px;
+/*
+
+	max-width:96%;
+	white-space: nowrap;
+	overflow:scroll;
+	overflow-x: scroll;
+	overflow-y: hidden;
+*/
+}
+
+/* #751947 lightish maroon */
+/* #c0c0c0 silver. Allegedly */	
+.border1 {
+	border-style:solid;
+	border-color:#c0c0c0;
+	border-width:0px 80px 0px 80px;
+}
+
+.border2 {
+	border-style:solid;
+	border-color:#f0f0f0;
+	border-width:0px 20px 0px 20px;
+}
+
+#underline {
+	background-color:#c0c0c0;
+	border: black solid 1px;
+}
+
+.here {   /* relates to logo - you are here marker */
+	background: linear-gradient(to right, white, #2f97bc);
+	font-weight:bold;
+	font-size:xx-large;
+	color:#2f97bc;
+	margin:20px 0px 0px 50px;
+	height:80px;
+}
+
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+
+
+p {	FONT-FAMILY: arial, verdana, sans-serif; text-align: justify;
+   	font-size: 14px; font-weight: normal;
+}
+
+hr {color: #000000; height: 1px}
+
+.hr300 {
+	width:300px;
+	height:4px;
+	color:#751947;
+}
+
+.attention
+{
+	text-decoration: none;
+	color: red;
+	font-style:italic;
+	font-weight:bold;
+}
+
+.monkish {
+	float: left;
+    width: 0.7em;
+    font-size: 400%;
+    font-family: algerian, courier;
+    line-height: 80%;
+}
+
+.opens {
+	font-size:smaller;
+	font-style:italic;
+}
+
+
+/* max width 1024 plus artificial borders */
+
+/*	background: #ffffcc url(../images/banner.jpg) repeat-x center 15px; */
+/* insert this line in body if top banner required */
+body 
+{	
+
+	width:100%;
+	FONT-FAMILY: arial, verdana, sans-serif; 
+	text-align: justify;
+	margin: 0;
+	padding: 0;
+	color: black;
+	background-color:white;
+}
+
+
+.restricted
+{
+	position:relative;
+	margin: 0 auto;
+	FONT-FAMILY: arial, verdana, sans-serif; 
+	text-align: justify;
+	/* background-color: #ffffcc; */ background-color:white;
+	font-size: 14px; font-weight: normal;
+	border-color: #ffcccc; border-width: 0px;
+	vertical-align: middle; 
+	min-width:900px;
+	max-width:1024px;
+}
+
+/* =========================================================================*/
+/*                                                             buttons     */
+/* also see separate stylesheet - done to avoid interference with default style
+in table in delta wizard imported details             */
+
+.orderbutton {border-radius: 50%;}
+
+.shopbutton {border-radius: 20px;}
+
+.button {
+	background-color: yellow;
+	color:black;
+	padding: 15px 32px;
+	border:solid;
+	text-decoration:none;
+	text-align:center;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor:pointer;
+}
+
+
+
+
+
+a, button, input[type="submit"] {
+	cursor: pointer;
+}
+
+
+/* =========================================================================*/
+/*                                                             HOME */
+
+/*                                                              centre */
+.divider {
+	width:30px;
+	border-style:none;
+	border-color:yellow;
+}
+
+.paneldue {
+	background-color:yellow;
+}
+
+.paneldue2 {
+	height:581px;	
+	width:596px;
+	border-style:solid;
+		border-width:20px;
+		border-color:magenta;
+}
+
+#homecontents {
+	position:relative;
+	top:0px;
+	left:0px;
+	min-height:480px;
+	
+	border-style:none;
+		border-width:2px;
+		border-color:magenta;
+}
+
+#homeproducts {
+	position:absolute;
+	top:0px;
+	left: 0px;
+}
+
+#homeproducts-1 {
+	line-height:180%;
+	font-size:larger;
+}
+
+#home-button {
+	margin-left:300px;
+}
+
+#aboutus1 {
+	position: absolute;
+	top:330px;
+	left:0px;
+	width: 410px;
+}
+
+#home-patriotic {
+	position: absolute;
+	bottom:-30px;
+	left:0px;
+}
+
+#home-patriotic-flag {
+	position: absolute;
+	bottom:0px;
+	left:0px;
+}
+
+#treefrogtext {
+	position: absolute;
+	bottom:-50px;
+	right:0px;
+}
+	
+
+/*                                                                HOME - LHS */
+
+#homenews {
+	position:absolute;
+	top: 380px;
+	left:0px;
+}
+
+.news {
+	margin:10px 0px 0px 0px;
+	text-align:left;
+	line-height:150%;
+}
+
+#staticnewscontents {
+	position:absolute;
+	top:130px;
+	left:0px;
+	border-style:none;
+	border-color:blue;
+	width:410px;
+	min-height:20px;
+}
+
+#staticnews01 {
+}
+
+#staticnews02 {
+}
+
+.marqueehead {
+	color:red;
+	font-weight:bold;
+	font-size: 20pt;
+}
+
+#marqueecontainer{
+position: relative;
+top:0px;
+width: 200px; /*marquee width */
+height: 180px; /*marquee height */
+background-color: white;
+overflow: hidden;
+border:10px groove #2f97bc;
+padding: 2px;
+padding-left: 4px;
+}
+
+#marqueefoot {
+	position:relative;
+	top:20px;
+	width:200px;
+	height:60px;
+	background-color: white;
+	border:10px #0000ff;
+	border-style: none groove groove groove;
+	padding: 2px;
+	padding-left: 4px;
+	font-style:italic;
+}
+
+
+
+/*                                                                 HOME - RHS  */
+/* SEARCH box */
+
+.search {
+	background-color:white;
+	width:200px;
+	border-style:solid;
+	border-color:red;
+	padding: 4px 0px 4px 6px;
+	margin:10px 0px 0px 6px;
+	border-radius:10px;
+}
+
+#qfront {
+	width: 150px;
+	color:black;
+}
+
+.searchnojavascript {
+	margin:20px 10px 20px 10px;
+}
+
+#searchfor {
+	margin:5px 10px 10px 10px;
+}
+
+#searchwhere {
+	margin:5px 10px 0px 10px;
+}
+
+#gobox {
+	margin:24px 20px 0px 0px;
+}
+
+#home1 {
+	text-align: center;
+}
+
+/* =========================================================================*/
+
+.logo {
+	margin:10px 100px 10px 10px;
+	width:167px;
+	height:80px;
+
+	border-style:none;
+	border-color:red;
+}
+
+.nav {
+	width:190px;
+	height:30px;
+	background-color:white;
+	text-align:center;
+	border-color:black;
+	padding:5px 0px 5px 0px;
+	
+}
+
+.navbox {	
+	background-color:white;
+	color:black;
+	width:1024px;
+	height:90px;
+	border-style:solid;
+	border-width:1px;
+	border-color:black;
+	padding: 4px 0px 14px 0px;
+	margin:10px 0px 0px 6px;
+	border-radius:10px;
+}
+
+
+/* =========================================================================*/
+
+
+a.nav:link {
+	FONT-WEIGHT: normal; FONT-SIZE: 11pt; COLOR: black; FONT-FAMILY: arial, verdana, sans-serif;
+	TEXT-DECORATION: none;
+	border:none;
+}
+a.nav:visited {
+	FONT-WEIGHT: normal; FONT-SIZE: 11pt; COLOR: #000000; FONT-FAMILY: arial, verdana, sans-serif;
+	TEXT-DECORATION: none;
+	border:none;
+}
+a.nav:active {
+	FONT-WEIGHT: normal; FONT-SIZE: 11pt; COLOR: #000000; FONT-FAMILY: arial, verdana, sans-serif;
+	TEXT-DECORATION: none;
+	border:none;
+}
+a.nav:hover {
+	COLOR: black; TEXT-DECORATION: underline; background-color:#e5eecc; font-weight:bold;
+		
+}
+A.current:link {
+	FONT-WEIGHT: bold; FONT-SIZE: 11pt; COLOR: #ffffff;background-color:#00cccc;
+	FONT-FAMILY: arial, verdana, sans-serif;
+	TEXT-DECORATION: none
+}
+A.current:visited {
+	FONT-WEIGHT: bold; FONT-SIZE: 11pt; COLOR: #0000cc; FONT-FAMILY: arial, verdana, sans-serif;
+	TEXT-DECORATION: none
+}
+
+/* =========================================================================*/
+
+
+
+/* FOOTER */
+
+.footer {
+	color:#751947;
+	background-color:white;
+	margin-top:40px;
+	/* border-style:solid;border-color:green; */ border-style:none;
+	
+}
+
+#footerbanner {
+	background: #ffffff url(../images/banner.jpg) repeat-x center 15px; 
+	height:120px;
+	border-style:none;
+	border-color:black;
+	border-width:15px 15px 15px 15px;
+}
+
+#back {
+	font-size:10px;
+	color:#000000;
+	background-color:white;
+	text-align:right;
+}
+
+#toparrow {
+	width:8px;
+	height:8px;
+	border:none;
+}
+
+#legal {
+	font-size: x-small;
+}
+
+
+/* =========================================================================*/
+/*                                                ORDER */
+
+#ordertable {
+	width:950px;
+}
+
+#orderindex {
+}
+
+#heightsensorsummary {
+	margin:50px 0px 0px 0px;
+	position:relative;
+	height:200px;
+	width:100%;
+	border:none; /* 1px cyan solid; */
+}
+
+#heightsensorimage {
+	position: absolute;
+	top:0;
+	right:0;
+/*	background-image: url("/images/products/heightsensor300.jpg"); */
+	background-image: url("heightsensor300.jpg");
+	height:200px;
+	width:356px;
+	margin:0px 0px 10px auto;
+}
+
+#heightsensortext {
+	position:absolute;
+	top:0;
+	left:0;
+	
+	padding:30px 40px 0px 50px;
+	background-color:white;
+	max-width:500px;
+	min-width:180px;
+	text-align:left;
+}
+
+
+
+/* - - - - - - - - -- */
+
+#panelduesummary {
+	margin:70px 0px 0px 0px;
+	position:relative;
+	height:200px;
+	width:100%;
+	border: none;  /* 1px cyan solid; */
+}
+
+#paneldueimage {
+	position: absolute;
+	top:0;
+	right:0;
+	background-image: url("pdslide2.jpg"); 
+	height:200px;
+	width:356px;
+
+	margin:0px 0px 10px auto;
+}
+
+#panelduetext {
+	position:absolute;
+	top:0;
+	left:0;
+	
+	padding:30px 40px 0px 50px;
+	background-color:white;
+	max-width:500px;
+	min-width:180px;
+	text-align: left;
+	
+}
+
+/* - - - - - - - - -- */
+
+#calltoaction {
+	font-weight:bold;
+	border: 3px solid #2f97bc;
+	padding:10px 10px 10px 10px;
+	
+}
+
+/* =========================================================================*/
+/*                               ORDER continued - product details          */
+/*                                 height sensor                            */
+#HS {
+	position:relative;
+	margin:10px auto 10px auto;
+	height:710px;
+	background-color:white;
+	/* border:1px solid green; */
+}
+
+#hsdetail1 {
+	position: absolute;
+	top: 0px;
+	right:0px;
+
+	background-image: url("heightsensorfrombelowVERT500.jpg"); 
+	height:656px;
+	width:500px;	
+}
+
+#hsdetailimg {
+	width:243px;
+	height:195px;
+}
+
+#hsdetail2 {
+	margin:0px 0px 0px 30px;
+	width:450px;
+	text-align:left;
+}
+
+#hsdetail2-1 {
+	padding:10px 0px 0px 0px;
+	font-weight:bold;
+}
+
+#hs-price-guide {
+	position:absolute;
+	bottom:80px;
+	left:30px;
+}
+
+#hs-list {
+	list-style-position:inside;
+}
+
+#hs-order {
+	position:absolute;
+	bottom:0px;
+	left:30px;
+	display:block;                              /* DISPLAY */
+}
+
+#hs-fixing {
+	position: absolute;
+	bottom:0px;
+	left:300px;
+}
+
+/*-- height sensor HTML file -- hs-pricing.html */
+
+#hs-pricing-general {
+	font-size:smaller;
+}
+
+#hs-price-table {
+	margin-left:30px;
+	margin-top:-6px;
+}
+
+#hs-offer {
+	background: linear-gradient(to left, white, #2f97bc);
+	padding:10px 10px 10px 0px;
+	width:450px;
+	text-align:left;
+}
+
+/* =========================================================================*/
+/*                               ORDER continued - product details          */
+/*                                      paneldue                            */
+
+#PD {
+	position:relative;
+	margin:10px auto 10px auto;
+	height:760px;
+	background-color:white;
+/*	border: 1px solid green;  */
+}
+
+
+#pddetail1-a {
+	position: absolute;
+	top: 0px;
+	right:0px;
+	margin:100px 0px 0px 0px;
+
+	background-image: url("pdconsole500.jpg"); 
+	height:281px;
+	width:500px;	
+}
+
+#pddetail1-b {
+	position: absolute;
+	top: 281px;
+	right:0px;
+	margin:130px 0px 0px 0px;
+
+	background-image: url("pdprint500.jpg"); 
+	height:281px;
+	width:500px;	
+}
+
+
+#pddetail2 {                      /* text */
+	margin:0px 0px 0px 40px;
+	width:700px;
+	text-align:left;
+}
+
+#pddetail2-1 {                   /* paragraph heading table */
+	padding:20px 10px 0px 10px;
+	font-weight:bold;
+}
+
+#pddetail2-2 {                     /* table */
+	position:absolute;
+	top:100px;
+	max-width:500px;
+}
+
+#pddetail2-3 {
+	max-width:500px;
+}
+
+#pd-price-guide {
+	position:absolute;
+	bottom:150px;
+	left:0px;
+}
+
+#pd-list {
+	list-style-position:inside;
+}
+
+#pd-order {
+	position:absolute;
+	bottom:40px;
+	left:0px;
+	display:block;                              /* DISPLAY */
+}
+
+#pd-specification{
+	position: absolute;
+	left: 300px;
+	bottom: 100px;
+}
+
+#pd-fixing {
+	position: absolute;
+	left:300px;
+	bottom:40px;
+}
+
+/*-- paneldue HTML file -- pd-pricing.html */
+
+#pd-pricing-general {
+	font-size:smaller;
+}
+
+#pd-price-table {
+	margin-left:30px;
+}
+
+#pd-offer {
+	background: linear-gradient(to left, white, #2f97bc);
+	padding:10px 10px 10px 0px;
+	width:450px;
+	text-align:left;
+}
+
+/* =========================================================================*/
+/*                               ORDER continued -  order form              */
+/*                                                                          */
+
+#filastruder {
+	margin-top:20px;
+	border: 1px solid blue;
+	height:57px;
+}
+
+#order-div-01 {
+	margin:30px 0px 20px 0px;
+}
+
+#order-mandatory {
+	font-style:italic;
+	font-weight:bold;
+	margin-bottom:30px;
+}
+
+#EU-country {
+}
+
+#EU-name {
+	display:inline;
+	visibility:hidden;
+	max-width:40px;
+}
+
+#EU-VAT-number {
+	display:inline;
+	max-width:24px;
+	background-color:navy;
+	color:white;
+	visibility:hidden;
+}
+
+#vat {
+	margin-top:50px;
+}
+
+#VATtable {
+	margin-top: 30px;
+}
+
+#VATnumber {
+}
+
+#order-div-02 {
+}
+
+#order-quantity-IRsensor {
+}
+
+#order-quantity-PDconnector {
+}
+
+#order-quantity-PDcable {
+}
+
+.order-excluded {
+	color:blue;
+	font-style:italic;
+	font-size:smaller;
+}
+
+#locationtable {
+	background-color:yellow;
+}
+
+#VATrow {
+	display:none;
+}
+
+#specialreqs {
+}
+
+#specialreqs-1 {
+}
+
+#order-quotation{
+}
+
+#order-quotation-reqd {
+	
+	background-color:#e6ffcc;
+	color:black;
+	height:32px;
+	width:400px;
+	
+}
+
+#yesno {
+	vertical-align: middle;
+}
+
+#orderend {
+}
+
+#holiday {
+	background-color:yellow;
+	padding:10px;
+	margin:20px auto -20px auto;
+}
+
+#distributors {
+	background-color:white;
+	text-align:left;
+	margin-top:10px;
+	height:250px;
+}
+
+/* =========================================================================*/
+
+/*                                                 SUPPORT                 */
+
+
+#support {
+}
+
+#supporttable {
+	 font-weight:bold;
+	 margin-top:40px;
+	 margin-left:100px;
+}
+
+#ifyoumust {
+	margin:100px 0px 20px 100px;
+	font-style:italic;
+}
+
+/* =========================================================================*/
+/*                                       WIZARDS */
+
+#wizards {
+	margin: 0 auto;
+	FONT-FAMILY: arial, verdana, sans-serif; 
+	text-align: left;
+	/* background-color: #ffffcc; */ background-color:white;
+	font-size: 14px; font-weight: normal;
+	border-color: #ffcccc; border-width: 0px;
+	border-style:none;
+	/*
+	vertical-align: middle; 
+	min-width:900px;
+	max-width:1024px;
+	*/
+}
+
+#deltawizardduetwifiad {
+/* 	background: linear-gradient(to right, white, #2f97bc);  original - below is paler */
+	background: linear-gradient(to right, #d6edf5, #99d1e6);
+	width:100%;
+}
+
+/* =========================================================================*/
+/*                                       DESIGNS */
+
+#designcontents {
+	min-height:700px;
+}
+
+#deltaprinter01 {
+	position:absolute;
+	top:230px;
+	left:250px;
+}
+
+#deltaprinter01text {
+	position:absolute;
+	top:400px;
+	left:650px;
+}
+
+/* =========================================================================*/
+
+/*                                                CONTACT US */
+
+#forum {
+	margin:20px 0px 20px 0px;
+	min-width: 150px;
+	max-width: 180px;
+	text-align: left;
+}
+/* =========================================================================*/
+
+
+/* =====================================================   END    ====================*/
