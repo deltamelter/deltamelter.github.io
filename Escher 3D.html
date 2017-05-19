@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)http://escher3d.com/pages/wizards/wizarddelta.php -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title>Escher 3D</title>
+<link href="./Escher 3D_files/style.css" rel="stylesheet" type="text/css">
+
+
+<!-- =========================================================  JavaScript =========================  -->
+
+<script type="text/javascript">
+</script>
+</head>
+
+<!-- ====================================================================  -->
+
+<body>
+<a name="top"></a>
+
+<div class="border1">
+<div class="border2">
+
+<div class="banner">
+&nbsp;
+</div>
+
+<div class="restricted">
+
+
+<!-- ====== START MAIN CONTENT ============================================== -->
+<!-- ==========================  banner ====================================  -->
+
+
+
+<!-- ========================================= start navigation ====================  -->
+<div>
+
+
+
+<div class="navbox">
+
+<table id="navtable">
+<tbody><tr>
+<td><img id="logo" class="logo" src="./Escher 3D_files/logo.jpg" alt=""></td>
+<td>&nbsp;</td>
+<td><table><tbody><tr>
+
+<td><nav>
+
+<a class="nav" href="http://escher3d.com/index.php">Welcome</a> |
+
+<a class="nav" href="http://escher3d.com/pages/order/orderindex.php">Shop</a> |
+<!--  <a class="nav" href="../template.php">Template</a> | -->
+<a class="nav" href="http://escher3d.com/pages/support/supportindex.php">Support</a> |
+<a class="nav" href="http://escher3d.com/pages/wizards/wizardindex.php">Wizards</a> |
+<a class="noshow" href="http://escher3d.com/pages/designs/designindex.php">Designs</a> |
+<a class="nav" href="http://escher3d.com/pages/contact/contactindex.php">Contact Us</a>
+
+</nav>
+</td>
+
+  </tr>
+
+  <tr>
+  <td><hr></td></tr>
+
+  <tr>
+  <td>
+  <nav>
+  <a class="nav" href="https://miscsolutions.wordpress.com/" target="_blank">Solutions Blog</a>
+  </nav></td>
+  </tr></tbody></table>
+
+</td>
+</tr>
+</tbody></table>
+
+</div>
+
+</div>
+<!-- ====================================== end navigation ====================  -->
+
+
+<div class="here">WIZARDS</div>
+
+<!-- =========================================================================  -->
+<div>    <!-- ====================== START MAIN CONTENT ======================  -->
+
+
+<table>
+<tbody><tr>
+
+
+<td style="vertical-align:top">
+<div class="divider">&nbsp;
+</div>
+</td>
+
+<td style="vertical-align:top">
+
+<a name="delta"></a>
+
+
+<h1>Delta printer least-squares calibration calculator</h1>
+<h2>Instructions</h2>
+<p>
+This calculator implements the least-squares delta calibration algorithm that RepRapFirmware has built-in.
+I have provided it as a service for those not running RepRapFirmware.
+You can choose to calibrate the following parameters:</p>
+<ul>
+<li>3 factors (endstop corrections only)</li>
+<li>4 factors (endstop corrections and delta radius)</li>
+<li>6 factors (endstop corrections, delta radius, and two tower angular position corrections)</li>
+<li>7 factors (endstop corrections, delta radius, two tower angular position corrections, and diagonal rod length)</li>
+</ul>
+
+<p>It deliberately doesn't adjust any other tower position coordinates, because doing so isn't helpful.
+Any adjustment to the 6 possible tower position coordinates is equivalent to adjusting the delta radius and two tower angular positions,
+plus a translation of the bed origin and a rotation of the bed.
+You don't want to rotate the bed - that will just move the height errors to points you haven't probed.
+You don't want to translate the bed either - as well as moving height errors to points you haven't probed,
+it will reduce your print area because the bed origin will no longer be equidistant from the towers.</p>
+
+<p>I recommend using 6 factors. Unless you measure nozzle heights a very long way out opposite each of the towers,
+there is insufficient information to determins diagonal rod length accurately.</p>
+
+<p>To use the calculator:</p>
+
+<ol>
+<li>If you have any tower radius corrections configured in your firmware, remove them.</li>
+<li>Enter your current diagonal rod length, delta radius, homed height, endstop corrections, and tower position corrections.
+The tower position corrections are in degrees anticlockwise viewed looking down on the printer.
+All other values are in mm, except that if the firmware type is set to Repetier then the initial endstop corrections are in steps.</li>
+<li>Choose how many factors to calibrate (see below).</li>
+<li>Choose some points covering all arease of the bed at which to measure the nozzle height error.
+ The calculator will suggest some if you enter your printable radius, select 4, 7 or 10 points, and press the <b>Suggest probe points</b> button. Alternatively, choose your own.
+ The XY coordinates of each point must be the coordinates of the nozzle, not the coordinates of the Z probe if you are using one.</li>
+<li>Measure the nozzle height errors at those probe points, then enter the values in this calculator along with your machine parameters.
+Enter positive height errors where the nozzle is too high, and negative height errors where it is too low.
+</li>
+<li>Press the <b>Calculate</b>. Check that the calculator reports success.</li>
+<li>Copy the output parameters to your machine. You can use the generated M665 and M666 commands to do some or all of this for you, depending on your firmware.</li>
+<li>Repeat the whole process once more. Two iterations should be sufficient unless your calibration was a long way off initially.</li>
+</ol>
+
+
+<div id="deltawizardduetwifiad">
+If you find the above is rather laborious, why not upgrade your electronics to
+<a href="https://www.duet3d.com/" target="_blank">Duet WiFi</a>, which has the calibration calculator built in to the firmware
+so that you can auto-calibrate in just 30 seconds?
+</div>
+
+<p>You can send feedback to me using the <a href="http://escher3d.com/pages/contact/contactindex.php">Contact form</a>.</p>
+
+
+<p>Calculator © 2015 Escher Technologies Ltd.</p>
+
+<h2>Update history</h2>
+<table border="1" style="border-collapse:collapse; font-size:smaller" cellpadding="5">
+<tbody><tr>
+<td valign="top">2016-01-01</td>
+<td>
+	Corrected sign of nozzle height errors<br>
+    Added MarlinRC option<br>
+	Invert endstop corrections where necessary<br>
+	Corrected homed carriage height calculation<br>
+	Generate suggested points for 4-point probing<br>
+	Generate M665 D E H Z parameters when Smoothieware is selected
+</td>
+</tr>
+<tr>
+<td valign="top">2016-01-17</td>
+<td>
+	Corrected sign of endstop corrections when Repetier is selected<br>
+	Normalise endstop corrections to be all positive when Repetier is selected<br>
+	Trap errors if probe points are unreachable or not distinct
+</td>
+</tr>
+<tr>
+<td valign="top">2016-01-31</td>
+<td>
+	Added R parameter to generated M666 command when Marlin RC firmware is selected<br>
+	Added "Copy to initial parameters" button
+</td>
+</tr>
+<tr>
+<td valign="top">2016-03-30</td>
+<td>
+	Added D parameter to generated M666 command when Marlin RC firmware is selected<br>
+	Corrected call to function SwapRows from GaussJordan
+</td>
+</tr>
+</tbody></table>
+&nbsp;
+<hr>
+<form>
+<table id="inputTable">
+<tbody><tr>
+<td style="padding-bottom:20px">Firmware type:</td>
+<td colspan="7" style="padding-bottom:20px">
+<input type="radio" name="firmware" value="RRF" checked="">RepRapFirmware
+<input type="radio" name="firmware" value="Smoothieware">Smoothieware
+<input type="radio" name="firmware" value="Repetier">Repetier
+<input type="radio" name="firmware" value="Marlin">Marlin (standard)
+<input type="radio" name="firmware" value="MarlinRC">Marlin (Rich Cattel)
+<input type="radio" name="firmware" value="Marlin-AC">Marlin-AC(LvD)
+</td>
+</tr><tr>
+<td>Steps/mm (for Repetier only):</td>
+<td>
+</td><td><input type="number" id="stepspermm" value="80.0" style="width:70px"></td>
+</tr>
+
+<tr>
+<td>Initial endstop corrections:</td>
+<td>X:</td>
+<td><input type="number" id="oldxstop" value="0.0" step="0.01" style="width:70px"></td>
+<td>Y:</td>
+<td><input type="number" id="oldystop" value="0.0" step="0.01" style="width:70px"></td>
+<td>Z:</td>
+<td><input type="number" id="oldzstop" value="0.0" step="0.01" style="width:70px"></td>
+</tr>
+<tr>
+<td>Initial diagonal rod length:</td>
+<td>
+</td><td><input type="number" id="oldrodlength" value="355.0" step="0.01" style="width:70px"></td>
+</tr>
+<tr>
+<td>Initial delta radius:</td>
+<td>
+</td><td><input type="number" id="oldradius" value="172.0" step="0.01" style="width:70px"></td>
+</tr>
+<tr>
+<td>Initial homed height:</td>
+<td>
+</td><td><input type="number" id="oldhomedheight" value="300.0" step="0.01" style="width:70px"></td>
+</tr>
+<tr>
+<td style="padding-right:10px">Initial tower angular position corrections:</td>
+<td>X:</td>
+<td><input type="number" id="oldxpos" value="0.0" step="0.01" style="width:70px"></td>
+<td>Y:</td>
+<td><input type="number" id="oldypos" value="0.0" step="0.01" style="width:70px"></td>
+<td>Z:</td>
+<td><input type="number" id="oldzpos" value="0.0" step="0.01" style="width:70px"></td>
+</tr>
+<tr>
+<td>Printable bed radius:</td>
+<td>
+</td><td><input type="number" id="bedradius" value="150.0" step="0.01" style="width:70px"></td>
+</tr>
+<tr>
+<td>Number of probe points:</td>
+<td>
+</td><td><input type="number" id="numPoints" value="10" min="4" max="30" style="width:40px" onchange="setPoints()"></td>
+</tr>
+<tr>
+<td>Number of factors to calibrate:</td>
+<td>
+</td><td><input type="number" id="numfactors" value="6" min="4" max="7" style="width:40px"></td>
+</tr>
+<tr>
+<td>Normalise endstop corrections?</td>
+<td><input type="checkbox" id="normalise" checked=""></td>
+</tr>
+
+<tr><td style="padding-bottom:20px; padding-top:20px"><input type="button" id="suggestButton" value="Suggest probe points" onclick="calcProbePoints()"></td></tr>
+
+<!-- bed probe points are inserted here -->
+
+<tr><td>Point 0</td><td>X:</td><td><input type="number" value="0.0" step="0.01" style="width:70px" id="probeX0"></td><td>Y:</td><td><input type="number" value="0.0" step="0.01" style="width:70px" id="probeY0"></td><td></td><td>Nozzle height error:</td><td><input type="number" value="0.0" step="0.01" style="width:70px" id="probeZ0"></td></tr><tr><td>Point 1</td><td>X:</td><td><input type="number" value="0.0" step="0.01" style="width:70px" id="probeX1"></td><td>Y:</td><td><input type="number" value="0.0" step="0.01" style="width:70px" id="probeY1"></td><td></td><td>Nozzle height error:</td><td><input type="number" value="0.0" step="0.01" style="width:70px" id="probeZ1"></td></tr><tr><td>Point 2</td><td>X:</td><td><input type="number" value="0.0" step="0.01" style="width:70px" id="probeX2"></td><td>Y:</td><td><input type="number" value="0.0" step="0.01" style="width:70px" id="probeY2"></td><td></td><td>Nozzle height error:</td><td><input type="number" value="0.0" step="0.01" style="width:70px" id="probeZ2"></td></tr><tr><td>Point 3</td><td>X:</td><td><input type="number" value="0.0" step="0.01" style="width:70px" id="probeX3"></td><td>Y:</td><td><input type="number" value="0.0" step="0.01" style="width:70px" id="probeY3"></td><td></td><td>Nozzle height error:</td><td><input type="number" value="0.0" step="0.01" style="width:70px" id="probeZ3"></td></tr><tr><td>Point 4</td><td>X:</td><td><input type="number" value="0.0" step="0.01" style="width:70px" id="probeX4"></td><td>Y:</td><td><input type="number" value="0.0" step="0.01" style="width:70px" id="probeY4"></td><td></td><td>Nozzle height error:</td><td><input type="number" value="0.0" step="0.01" style="width:70px" id="probeZ4"></td></tr><tr><td>Point 5</td><td>X:</td><td><input type="number" value="0.0" step="0.01" style="width:70px" id="probeX5"></td><td>Y:</td><td><input type="number" value="0.0" step="0.01" style="width:70px" id="probeY5"></td><td></td><td>Nozzle height error:</td><td><input type="number" value="0.0" step="0.01" style="width:70px" id="probeZ5"></td></tr><tr><td>Point 6</td><td>X:</td><td><input type="number" value="0.0" step="0.01" style="width:70px" id="probeX6"></td><td>Y:</td><td><input type="number" value="0.0" step="0.01" style="width:70px" id="probeY6"></td><td></td><td>Nozzle height error:</td><td><input type="number" value="0.0" step="0.01" style="width:70px" id="probeZ6"></td></tr><tr><td>Point 7</td><td>X:</td><td><input type="number" value="0.0" step="0.01" style="width:70px" id="probeX7"></td><td>Y:</td><td><input type="number" value="0.0" step="0.01" style="width:70px" id="probeY7"></td><td></td><td>Nozzle height error:</td><td><input type="number" value="0.0" step="0.01" style="width:70px" id="probeZ7"></td></tr><tr><td>Point 8</td><td>X:</td><td><input type="number" value="0.0" step="0.01" style="width:70px" id="probeX8"></td><td>Y:</td><td><input type="number" value="0.0" step="0.01" style="width:70px" id="probeY8"></td><td></td><td>Nozzle height error:</td><td><input type="number" value="0.0" step="0.01" style="width:70px" id="probeZ8"></td></tr><tr><td>Point 9</td><td>X:</td><td><input type="number" value="0.0" step="0.01" style="width:70px" id="probeX9"></td><td>Y:</td><td><input type="number" value="0.0" step="0.01" style="width:70px" id="probeY9"></td><td></td><td>Nozzle height error:</td><td><input type="number" value="0.0" step="0.01" style="width:70px" id="probeZ9"></td></tr><tr><td style="padding-bottom:20px; padding-top:20px"><input type="button" value="Calculate" onclick="calc()"></td></tr>
+
+<tr><td colspan="7" style="padding-bottom:20px"><span id="result" style="font-weight: bold; background-color: lightgreen;">&nbsp;Success! Calibrated 6 factors using 10 points, deviation before 1.73 after 0.04&nbsp;</span></td></tr>
+
+<tr><td>New endstop corrections:</td>
+<td>X:</td>
+<td><input type="number" id="newxstop" style="width:70px" readonly=""></td>
+<td>Y:</td>
+<td><input type="number" id="newystop" style="width:70px" readonly=""></td>
+<td>Z:</td>
+<td><input type="number" id="newzstop" style="width:70px" readonly=""></td>
+</tr>
+<tr>
+<td>New diagonal rod length:</td>
+<td>
+</td><td><input type="number" id="newrodlength" style="width:70px" readonly=""></td>
+</tr>
+<tr>
+<td>New delta radius:</td>
+<td>
+</td><td><input type="number" id="newradius" style="width:70px" readonly=""></td>
+</tr>
+<tr>
+<td>New homed height:</td>
+<td>
+</td><td><input type="number" id="newhomedheight" style="width:70px" readonly=""></td>
+</tr>
+<tr>
+<td>New tower position angle corrections:</td>
+<td>X:</td>
+<td><input type="number" id="newxpos" style="width:70px" readonly=""></td>
+<td>Y:</td>
+<td><input type="number" id="newypos" style="width:70px" readonly=""></td>
+<td>Z:</td>
+<td><input type="number" id="newzpos" style="width:70px" readonly=""></td>
+</tr>
+<tr>
+<td style="padding-top:20px">Commands:</td>
+<td colspan="6" style="padding-top:20px"><textarea id="commands" style="width:500px" rows="3" readonly=""></textarea></td>
+</tr>
+<tr>
+<td style="padding-bottom:20px; padding-top:20px"><input type="button" id="copyButton" value="Copy to initial parameters" onclick="copyToInitial()"></td>
+</tr>
+</tbody></table>
+</form>
+
+<div id="debug"></div>
+
+<script src="./Escher 3D_files/delta_calibration_wizard.js.download"></script>
+
+</td>
+
+<td style="vertical-align:top">
+<div class="divider">&nbsp;
+</div>
+</td>
+
+<td style="vertical-align:top">
+</td>
+
+
+</tr>
+</tbody></table>
+</div>
+</div>  <!--  ==== END MAIN CONTENT ========== 	-->
+
+
+
+<div class="footer">
+
+
+<div id="back">
+  <a href="http://escher3d.com/" class="noshow">Home</a>&nbsp;&nbsp;&nbsp;
+  <a href="http://escher3d.com/pages/wizards/wizarddelta.php#top" class="noshow">
+ <img src="./Escher 3D_files/arrowup.gif" id="toparrow" alt="TOP">TOP</a>
+ </div>
+
+  <hr>
+  <div id="legal">
+  <div id="trading">Escher Technologies Ltd (Registered in England 3128474) trading as Escher3D
+  </div>
+
+    <div id="copyright">Copyright © Escher Technologies Ltd.&nbsp;&nbsp;&nbsp;
+      All rights reserved. Information in this document is subject to change without notice.
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	This site does not yet use cookies.</div>
+</div>
+</div>
+
+
+
+</div>
+</div>
+<div id="underline">&nbsp;</div>
+
+</body></html>
