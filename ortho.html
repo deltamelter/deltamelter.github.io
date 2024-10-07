@@ -95,7 +95,7 @@
                         // Adjust camera position and zoom
                         const size = box.getSize(new THREE.Vector3());
                         const maxDim = Math.max(size.x, size.y, size.z);
-                        camera.position.set(0, 0, maxDim * 2); // Set to front view
+                        camera.position.set(0, 90, maxDim * 2); // Set to front view
                         camera.zoom = 0.15; // Zoom out further
                         camera.updateProjectionMatrix();
 
