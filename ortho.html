@@ -220,7 +220,7 @@
                         const size = box.getSize(new THREE.Vector3());
                         const maxDim = Math.max(size.x, size.y, size.z);
                         camera.position.z = maxDim * 2; // Adjusted to zoom out
-                        camera.zoom = 0.5; // Zoom out further
+                        camera.zoom = 0.15; // Zoom out further
                         camera.updateProjectionMatrix();
 
                         camera.lookAt(new THREE.Vector3(0, 0, 0));
@@ -238,7 +238,7 @@
 
             // Example usage
             //loadModel('path/to/your/model.stl', 'stl'); // For STL model
-             loadModel('trackerpus.fbx', 'fbx'); // For FBX model
+             loadModel('./trackerpus.fbx', 'fbx'); // For FBX model
         });
     </script>
 </head>
