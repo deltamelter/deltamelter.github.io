@@ -45,7 +45,7 @@
                 const size = new THREE.Vector3();
                 boundingBox.getSize(size);
                 const maxDim = Math.max(size.x, size.y, size.z);
-                camera.position.z = maxDim * 2; // Adjusted to zoom out
+                camera.position.z = maxDim * 4; // Adjusted to zoom out
                 camera.zoom = 0.5; // Zoom out further
                 camera.updateProjectionMatrix();
 
@@ -53,7 +53,7 @@
 
                 const animate = () => {
                     requestAnimationFrame(animate);
-                    mesh.rotation.x += 0.01;
+                    //mesh.rotation.x += 0.01;
                     mesh.rotation.y += 0.01;
                     renderer.render(scene, camera);
                 };
