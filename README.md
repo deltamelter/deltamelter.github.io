@@ -1,5 +1,3 @@
-
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,7 +11,7 @@
         var stl_viewer = new StlViewer(
             document.getElementById("stl_cont"),
             {
-                models: [{ id: 0, filename: "path/to/your/model.stl" }]
+                models: [{ id: 0, filename: "lid.stl" }]
             }
         );
     </script>
