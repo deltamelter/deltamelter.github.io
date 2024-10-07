@@ -21,11 +21,28 @@
                 const material = new THREE.MeshNormalMaterial();
                 const mesh = new THREE.Mesh(geometry, material);
                 scene.add(mesh);
-                camera.position.z = 5;
+
+                // Center the mesh
+                geometry.computeBoundingBox();
+                const center = new THREE.Vector3();
+                geometry.boundingBox.getCenter(center);
+                mesh.position.sub(center);
+
+                // Adjust camera position
+                const boundingBox = geometry.boundingBox;
+                const size = new THREE.Vector3();
+                boundingBox.getSize(size);
+                const maxDim = Math.max(size.x, size.y, size.z);
+                const fov = camera.fov * (Math.PI / 180);
+                let cameraZ = Math.abs(maxDim / 2 * Math.tan(fov * 2)); // Adjusted to zoom out
+
+                camera.position.z = cameraZ * 2; // Further back to zoom out
+                camera.lookAt(new THREE.Vector3(0, 0, 0));
+
                 const animate = () => {
                     requestAnimationFrame(animate);
                     mesh.rotation.x += 0.01;
-                    mesh.rotation.y += 0;
+                    mesh.rotation.y += 0.01;
                     renderer.render(scene, camera);
                 };
                 animate();
