@@ -29,7 +29,7 @@
             container.appendChild(renderer.domElement);
 
             const loader = new STLLoader();
-            loader.load('./trackerpus.stl', (geometry) => {
+            loader.load('path/to/your/model.stl', (geometry) => {
                 const material = new THREE.MeshNormalMaterial();
                 const mesh = new THREE.Mesh(geometry, material);
                 scene.add(mesh);
@@ -40,18 +40,20 @@
                 geometry.boundingBox.getCenter(center);
                 mesh.position.sub(center);
 
-                // Adjust camera position
+                // Adjust camera position and zoom
                 const boundingBox = geometry.boundingBox;
                 const size = new THREE.Vector3();
                 boundingBox.getSize(size);
                 const maxDim = Math.max(size.x, size.y, size.z);
                 camera.position.z = maxDim * 2; // Adjusted to zoom out
+                camera.zoom = 0.5; // Zoom out further
+                camera.updateProjectionMatrix();
 
                 camera.lookAt(new THREE.Vector3(0, 0, 0));
 
                 const animate = () => {
                     requestAnimationFrame(animate);
-                    //mesh.rotation.x += 0.01;
+                    mesh.rotation.x += 0.01;
                     mesh.rotation.y += 0.01;
                     renderer.render(scene, camera);
                 };
@@ -64,3 +66,72 @@
     <div id="stl_cont" style="width: 600px; height: 400px;"></div>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STL Viewer</title>
+    <script type="module">
+        import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.118.3/build/three.module.js';
+        import { STLLoader } from 'https://cdn.jsdelivr.net/npm/three@0.118.3/examples/jsm/loaders/STLLoader.js';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('stl_cont');
+            const scene = new THREE.Scene();
+            
+            // Define the orthographic camera
+            const aspect = container.clientWidth / container.clientHeight;
+            const frustumSize = 10;
+            const camera = new THREE.OrthographicCamera(
+                frustumSize * aspect / -2, 
+                frustumSize * aspect / 2, 
+                frustumSize / 2, 
+                frustumSize / -2, 
+                0.1, 
+                1000
+            );
+
+            const renderer = new THREE.WebGLRenderer();
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            container.appendChild(renderer.domElement);
+
+            const loader = new STLLoader();
+            loader.load('./trackerpus.stl', (geometry) => {
+                const material = new THREE.MeshNormalMaterial();
+                const mesh = new THREE.Mesh(geometry, material);
+                scene.add(mesh);
+
+                // Center the mesh
+                geometry.computeBoundingBox();
+                const center = new THREE.Vector3();
+                geometry.boundingBox.getCenter(center);
+                mesh.position.sub(center);
+
+                // Adjust camera position and zoom
+                const boundingBox = geometry.boundingBox;
+                const size = new THREE.Vector3();
+                boundingBox.getSize(size);
+                const maxDim = Math.max(size.x, size.y, size.z);
+                camera.position.z = maxDim * 2; // Adjusted to zoom out
+                camera.zoom = 0.5; // Zoom out further
+                camera.updateProjectionMatrix();
+
+                camera.lookAt(new THREE.Vector3(0, 0, 0));
+
+                const animate = () => {
+                    requestAnimationFrame(animate);
+                    mesh.rotation.x += 0.01;
+                    mesh.rotation.y += 0.01;
+                    renderer.render(scene, camera);
+                };
+                animate();
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="stl_cont" style="width: 600px; height: 400px;"></div>
+</body>
+</html>
+
