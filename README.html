@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STL Viewer</title>
-    <script src="https://threejs.org/build/three.min.js"></script>
     <script type="module">
-        import { STLLoader } from 'https://threejs.org/examples/jsm/loaders/STLLoader.js';
+        import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.118.3/build/three.module.js';
+        import { STLLoader } from 'https://cdn.jsdelivr.net/npm/three@0.118.3/examples/jsm/loaders/STLLoader.js';
 
         document.addEventListener('DOMContentLoaded', () => {
             const container = document.getElementById('stl_cont');
@@ -37,7 +37,3 @@
     <div id="stl_cont" style="width: 600px; height: 400px;"></div>
 </body>
 </html>
-
-
-
-
