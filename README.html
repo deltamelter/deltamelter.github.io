@@ -1,24 +1,43 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STL Viewer</title>
-    <script src="https://cdn.jsdelivr.net/gh/omrips/viewstl@master/stl_viewer.min.js"></script>
+    <script src="https://threejs.org/build/three.min.js"></script>
+    <script type="module">
+        import { STLLoader } from 'https://threejs.org/examples/jsm/loaders/STLLoader.js';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('stl_cont');
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer();
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            container.appendChild(renderer.domElement);
+
+            const loader = new STLLoader();
+            loader.load('./lid.stl', (geometry) => {
+                const material = new THREE.MeshNormalMaterial();
+                const mesh = new THREE.Mesh(geometry, material);
+                scene.add(mesh);
+                camera.position.z = 5;
+                const animate = () => {
+                    requestAnimationFrame(animate);
+                    mesh.rotation.x += 0.01;
+                    mesh.rotation.y += 0.01;
+                    renderer.render(scene, camera);
+                };
+                animate();
+            });
+        });
+    </script>
 </head>
 <body>
     <div id="stl_cont" style="width: 600px; height: 400px;"></div>
-    <script>
-        var stl_viewer = new StlViewer(
-            document.getElementById("stl_cont"),
-            {
-                models: [{ id: 0, filename: "./lid.stl" }]
-            }
-        );
-    </script>
-  <a href="https://deltamelter.github.io/Escher3D.html">Escher3d Wizard for Marlin-AC</a>
-
 </body>
 </html>
+
 
 
 
