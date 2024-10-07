@@ -29,7 +29,7 @@
             container.appendChild(renderer.domElement);
 
             const loader = new STLLoader();
-            loader.load('path/to/your/model.stl', (geometry) => {
+            loader.load('./ortho.stl', (geometry) => {
                 const material = new THREE.MeshNormalMaterial();
                 const mesh = new THREE.Mesh(geometry, material);
                 scene.add(mesh);
